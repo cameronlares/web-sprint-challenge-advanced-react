@@ -30,13 +30,56 @@ Be prepared to demonstrate your understanding of this week's concepts by answeri
 
 1. Explain how to build stateful class components.
 
+class Lambda extends Component {
+ constructor() {
+   super()
+   this.state = {
+     school: []
+   }
+ }
+ render() {
+   <SchoolList school={this.state.school} />
+ }
+
+
 2. Describe the different phases of the component lifecycle.
+
+ Mounting, Updating, and Unmounting.
+
 
 3. Demonstrate an understanding of class component lifecycle methods.
 
+componentDidMount
+componentDidUpdate
+componentWillUnmount 
+
 4. Define stateful logic.
 
+Stateful logic is any code that uses state. 
+
 5. Describe how to test a React component with React Testing Library.
+
+First you have to query your test 
+Second you have to fire the event 
+
+An example would be 
+
+test("Test Contact Form With No errors", () => {
+  //type into all three inputs
+  // 1. query for all inputs
+  //2. Run the change event to add text
+  render(<ContactForm />);
+
+  const firstName = screen.getByPlaceholderText(/Edd/i);
+  const lastName = screen.getByPlaceholderText(/Burke/i);
+  const email = screen.getByLabelText(/message/i);
+
+  //events with React Testing Library
+  fireEvent.change(firstName, { target: { value: "Cam" } }); //Pass in event object
+  fireEvent.change(lastName, { target: { value: "Lares" } }); //Pass in event object
+  fireEvent.change(email, { target: { value: "cam@gmail.com" } }); //Pass in event object
+
+  });
 
 You are expected to be able to answer questions in these areas. Your responses contribute to your Sprint Challenge grade.
 

@@ -17,28 +17,28 @@ const initialValue = {
 
  function CheckoutForm() {
 
-  const [values,handleChanges,handleSubmit,] = useForm(initialValue);
+  const [values,handleChanges] = useForm(initialValue);
 
-  
+  const [showSuccessMessage, setShowSuccessMessage] = useState(false);
+
 // const CheckoutForm = (props) => {
-//   const [showSuccessMessage, setShowSuccessMessage] = useState(false);
 //   const [values, setValues] = useState(initialValue);
 
   // const handleChanges = (e) => {
   //   setValues({ ...values, [e.target.name]: e.target.value });
   // };
 
-  // const handleSubmit = (e) => {
-  //   e.preventDefault();
-  //   setShowSuccessMessage(true);
-  // };
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    setShowSuccessMessage(true);
+  };
 
 
 
 
   return (
     <>
-      <form data-testid="form" onSubmit={useForm.handleSubmit}>
+      <form data-testid="form" onSubmit={handleSubmit}>
         <h2>Checkout Form</h2>
         <label>
           First Name:
@@ -80,7 +80,7 @@ const initialValue = {
         <button>Checkout</button>
       </form>
 
-      {values.showSuccessMessage && (
+      {showSuccessMessage && (
         <div className="success-message" data-testid="successMessage">
           <p>
             You have ordered some plants! Woo-hoo! <span role="img">🎉</span>
