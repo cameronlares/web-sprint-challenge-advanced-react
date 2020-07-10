@@ -4,8 +4,8 @@ import React, { useState } from "react";
 
 export const useForm = (initialValue) => {
 
+    const [showSuccessMessage, setShowSuccessMessage] = useState(false);
 
-  const [showSuccessMessage, setShowSuccessMessage] = useState(false);
   const [values, setValues] = useState(initialValue);
 
 const handleChanges = (e) => {

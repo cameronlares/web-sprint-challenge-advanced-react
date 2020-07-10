@@ -17,8 +17,6 @@ const initialValue = {
 
  function CheckoutForm() {
 
-  // const [showSuccessMessage, setShowSuccessMessage] = useState(false);
-
   const [values,handleChanges,handleSubmit,] = useForm(initialValue);
 
   
@@ -40,11 +38,12 @@ const initialValue = {
 
   return (
     <>
-      <form onSubmit={handleSubmit}>
+      <form data-testid="form" onSubmit={useForm.handleSubmit}>
         <h2>Checkout Form</h2>
         <label>
           First Name:
           <input
+      
             name="firstName"
             value={values.firstName}
             onChange={handleChanges}
@@ -81,7 +80,7 @@ const initialValue = {
         <button>Checkout</button>
       </form>
 
-      {useForm.showSuccessMessage && (
+      {values.showSuccessMessage && (
         <div className="success-message" data-testid="successMessage">
           <p>
             You have ordered some plants! Woo-hoo! <span role="img">🎉</span>
