@@ -45,7 +45,8 @@ test("form header renders", () => {
   //events with React Testing Library
   fireEvent.change(firstName, { target: { value: "Dustin" } }); //Pass in event object
   fireEvent.change(lastName, { target: { value: "Myers" } }); //Pass in event object
-  fireEvent.change(city, { target: { value: "505 Ezy St" } }); //Pass in event object
+  fireEvent.change(address, { target: { value: "505 Ezy St" } }); //Pass in event object
+  fireEvent.change(city, { target: { value: "New York City" } }); //Pass in event object
   fireEvent.change(state, { target: { value: "New York" } }); //Pass in event object
   fireEvent.change(zip, { target: { value: "12345" } }); //Pass in event object
 
